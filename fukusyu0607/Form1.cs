@@ -18,6 +18,10 @@ namespace fukusyu0607
         private static Random rand = new Random();
         int vx = rand.Next(-10, 11);
         int vy = rand.Next(-10,11);
+        int zx = rand.Next(-10, 10);
+        int zy = rand.Next(-10, 10);
+        int mx = rand.Next(-10, 10);
+        int my = rand.Next(-10, 10);
         int time = 100 * 5;
         
         public Form1()
@@ -45,22 +49,120 @@ namespace fukusyu0607
             label1.Left += vx;
             label1.Top += vy;
 
-            if(label1.Left<=0)
+            if (label3.Left <= 0)
+            {
+                mx = -mx;
+            }
+            if (label3.Top <= 0)
+            {
+                my = -my;
+            }
+            if (label3.Left >= ClientSize.Width - label3.Width)
+            {
+                mx = -Math.Abs(-mx);
+            }
+            if (label3.Top >= ClientSize.Height - label3.Height)
+            {
+                my = -Math.Abs(-my);
+            }
+            label3.Left += mx;
+            label3.Top += my;
+
+            if (label3.Left <= 0)
+            {
+                mx = -mx;
+            }
+            if (label3.Top <= 0)
+            {
+                my = -my;
+            }
+            if (label3.Left >= ClientSize.Width - label3.Width)
+            {
+                mx = -Math.Abs(-mx);
+            }
+            if (label3.Top >= ClientSize.Height - label3.Height)
+            {
+                my = -Math.Abs(-my);
+            }
+
+            label2.Left += zx;
+            label2.Top += zy;
+
+            if(label2.Left<=0)
+            {
+                zx = -zx;
+            }
+            if(label2.Top<=0)
+            {
+                zy = -zy;
+            }
+            if(label2.Left>=ClientSize.Width-label2.Width)
+            {
+                zx = -Math.Abs(-zx);
+            }
+            if(label2.Top>=ClientSize.Height-label2.Height)
+            {
+                zy = -Math.Abs(-zy);
+            }
+            label2.Left += zx;
+            label2.Top += zy;
+
+            if(label2.Left<=0)
+            {
+                zx = -zx;
+            }
+            if(label2.Top<=0)
+            {
+                zy = -zy;
+            }
+            if(label2.Left>=ClientSize.Width-label2.Width)
+            {
+                zx = -Math.Abs(-zx);
+            }
+            if(label2.Top>=ClientSize.Height-label2.Height)
+            {
+                zy = -Math.Abs(-zy);
+            }
+
+            label1.Left += vx;
+            label1.Top += vy;
+
+            if (label1.Left <= 0)
             {
                 vx = -vx;
             }
-            if(label1.Top<=0)
+            if (label1.Top <= 0)
             {
                 vy = -vy;
             }
-            if(label1.Left>=ClientSize.Width-label1.Width)
+            if (label1.Left >= ClientSize.Width - label1.Width)
             {
                 vx = -Math.Abs(-vx);
             }
-            if(label1.Top>=ClientSize.Height-label1.Height)
+            if (label1.Top >= ClientSize.Height - label1.Height)
             {
                 vy = -Math.Abs(-vy);
             }
+            label1.Left += vx;
+            label1.Top += vy;
+
+            if (label1.Left <= 0)
+            {
+                vx = -vx;
+            }
+            if (label1.Top <= 0)
+            {
+                vy = -vy;
+            }
+            if (label1.Left >= ClientSize.Width - label1.Width)
+            {
+                vx = -Math.Abs(-vx);
+            }
+            if (label1.Top >= ClientSize.Height - label1.Height)
+            {
+                vy = -Math.Abs(-vy);
+            }
+
             //マウスと重なった時、タイマーを止める
             Point p = PointToClient(MousePosition);
 
@@ -72,6 +174,16 @@ namespace fukusyu0607
             {
                 timer1.Enabled = false;
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
