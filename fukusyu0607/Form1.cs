@@ -51,7 +51,17 @@ namespace fukusyu0607
             {
                 vy = -Math.Abs(-vy);
             }
+            //マウスと重なった時、タイマーを止める
+            Point p = PointToClient(MousePosition);
 
+            if (    (p.X>=label1.Left)
+               && (p.X<=label1.Right)
+               && (p.Y>=label1.Top)
+               && (p.Y<=label1.Bottom)
+               )
+            {
+                timer1.Enabled = false;
+            }
         }
     }
 }
