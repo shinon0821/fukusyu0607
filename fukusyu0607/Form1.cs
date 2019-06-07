@@ -16,17 +16,27 @@ namespace fukusyu0607
         //ランダムのシード(種)を指定して初期化する
         //それを使い続ける
         private static Random rand = new Random();
-        int vx = rand.Next(-10, 11);
-        int vy = rand.Next(-10,11);
-        int zx = rand.Next(-10, 10);
-        int zy = rand.Next(-10, 10);
-        int mx = rand.Next(-10, 10);
-        int my = rand.Next(-10, 10);
+        
         int time = 100 * 5;
+
+        int[] velx = new int[3];
+        int[] vely = new int[3];
         
         public Form1()
         {
             InitializeComponent();
+            for (int i = 0; i < 3;i++ )
+            {
+                velx[i] = rand.Next(-10, 11);
+                vely[i] = rand.Next(-10, 11);
+            }
+
+                velx[0] = rand.Next(-10, 11);
+            velx[1] = rand.Next(-10, 11);
+            velx[2] = rand.Next(-10, 11);
+            vely[0] = rand.Next(-10, 11);
+            vely[1] = rand.Next(-10, 11);
+            vely[2] = rand.Next(-10, 11);
 
             //以下に、Label1.Leftとlabel1.Topの座標をランダムで求めよ
             label1.Left = rand.Next(ClientSize.Width - label1.Width);
@@ -46,121 +56,121 @@ namespace fukusyu0607
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label1.Left += vx;
-            label1.Top += vy;
+            label1.Left += velx[2];
+            label1.Top += vely[2];
 
             if (label3.Left <= 0)
             {
-                mx = -mx;
+                velx[0] = -velx[0];
             }
             if (label3.Top <= 0)
             {
-                my = -my;
+                vely[0] = -vely[0];
             }
             if (label3.Left >= ClientSize.Width - label3.Width)
             {
-                mx = -Math.Abs(-mx);
+                velx[0] = -Math.Abs(-velx[0]);
             }
             if (label3.Top >= ClientSize.Height - label3.Height)
             {
-                my = -Math.Abs(-my);
+                velx[0] = -Math.Abs(-vely[0]);
             }
-            label3.Left += mx;
-            label3.Top += my;
+            label3.Left += velx[0];
+            label3.Top += vely[0];
 
             if (label3.Left <= 0)
             {
-                mx = -mx;
+                velx[0] = -velx[0];
             }
             if (label3.Top <= 0)
             {
-                my = -my;
+                vely[0] = -vely[0];
             }
             if (label3.Left >= ClientSize.Width - label3.Width)
             {
-                mx = -Math.Abs(-mx);
+                velx[0] = -Math.Abs(-velx[0]);
             }
             if (label3.Top >= ClientSize.Height - label3.Height)
             {
-                my = -Math.Abs(-my);
+                vely[0] = -Math.Abs(-vely[0]);
             }
 
-            label2.Left += zx;
-            label2.Top += zy;
-
-            if(label2.Left<=0)
-            {
-                zx = -zx;
-            }
-            if(label2.Top<=0)
-            {
-                zy = -zy;
-            }
-            if(label2.Left>=ClientSize.Width-label2.Width)
-            {
-                zx = -Math.Abs(-zx);
-            }
-            if(label2.Top>=ClientSize.Height-label2.Height)
-            {
-                zy = -Math.Abs(-zy);
-            }
-            label2.Left += zx;
-            label2.Top += zy;
+            label2.Left += velx[1];
+            label2.Top += vely[1];
 
             if(label2.Left<=0)
             {
-                zx = -zx;
+                velx[1] = -velx[1];
             }
             if(label2.Top<=0)
             {
-                zy = -zy;
+                vely[1] = -vely[1];
             }
             if(label2.Left>=ClientSize.Width-label2.Width)
             {
-                zx = -Math.Abs(-zx);
+                velx[1] = -Math.Abs(-velx[1]);
             }
             if(label2.Top>=ClientSize.Height-label2.Height)
             {
-                zy = -Math.Abs(-zy);
+                vely[1] = -Math.Abs(-vely[1]);
+            }
+            label2.Left +=velx[1];
+            label2.Top += vely[1];
+
+            if(label2.Left<=0)
+            {
+                velx[1] = -velx[1];
+            }
+            if(label2.Top<=0)
+            {
+                vely[1] = -vely[1];
+            }
+            if(label2.Left>=ClientSize.Width-label2.Width)
+            {
+                velx[1] = -Math.Abs(-velx[1]);
+            }
+            if(label2.Top>=ClientSize.Height-label2.Height)
+            {
+                vely[1] = -Math.Abs(-vely[1]);
             }
 
-            label1.Left += vx;
-            label1.Top += vy;
+            label1.Left += velx[2];
+            label1.Top += vely[2];
 
             if (label1.Left <= 0)
             {
-                vx = -vx;
+                velx[2] = -velx[2];
             }
             if (label1.Top <= 0)
             {
-                vy = -vy;
+                vely[2] = -vely[2];
             }
             if (label1.Left >= ClientSize.Width - label1.Width)
             {
-                vx = -Math.Abs(-vx);
+                velx[2] = -Math.Abs(-velx[2]);
             }
             if (label1.Top >= ClientSize.Height - label1.Height)
             {
-                vy = -Math.Abs(-vy);
+                vely[2] = -Math.Abs(-vely[2]);
             }
-            label1.Left += vx;
-            label1.Top += vy;
+            label1.Left += velx[2];
+            label1.Top += vely[2];
 
             if (label1.Left <= 0)
             {
-                vx = -vx;
+                velx[2] = -velx[2];
             }
             if (label1.Top <= 0)
             {
-                vy = -vy;
+                vely[2] = -vely[2];
             }
             if (label1.Left >= ClientSize.Width - label1.Width)
             {
-                vx = -Math.Abs(-vx);
+                velx[2] = -Math.Abs(-velx[2]);
             }
             if (label1.Top >= ClientSize.Height - label1.Height)
             {
-                vy = -Math.Abs(-vy);
+                vely[2] = -Math.Abs(-vely[2]);
             }
 
             //マウスと重なった時、タイマーを止める
@@ -173,6 +183,36 @@ namespace fukusyu0607
                )
             {
                 timer1.Enabled = false;
+            }
+
+            if ((p.X >= label2.Left)
+              && (p.X <= label2.Right)
+              && (p.Y >= label2.Top)
+              && (p.Y <= label2.Bottom)
+            && label2.Visible
+              )
+            {
+                Left--;
+                label2.Visible = false;
+                if(Left<=0)
+                {
+                    timer1.Enabled = false;
+                }
+            }
+
+             if ((p.X >= label2.Left)
+              && (p.X <= label2.Right)
+              && (p.Y >= label2.Top)
+              && (p.Y <= label2.Bottom)
+            && label2.Visible
+              )
+            {
+                Left--;
+                label2.Visible = false;
+                if(Left<=0)
+                {
+                    timer1.Enabled = false;
+                }
             }
         }
 
